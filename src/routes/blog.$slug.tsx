@@ -54,7 +54,7 @@ function BlogPost() {
           <div className="font-mono text-xs text-muted-foreground">{post.date} · {post.readTime}</div>
           <h1 className="mt-3 text-4xl md:text-5xl font-semibold tracking-tight leading-tight">{post.title}</h1>
           <div className="mt-4 flex flex-wrap gap-2">
-            {post.tags.map((t) => (
+            {post.tags.map((t: string) => (
               <span key={t} className="font-mono text-[10px] px-2 py-0.5 rounded-full border border-border text-muted-foreground">#{t}</span>
             ))}
           </div>
