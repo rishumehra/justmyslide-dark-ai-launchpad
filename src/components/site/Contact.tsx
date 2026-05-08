@@ -8,14 +8,14 @@ export function Contact() {
         <div>
           <SectionHeader eyebrow="./contact --new" title="Have a project in mind?" description="Tell us about your AI workflow, RPA backlog, or docs initiative. We respond within one business day." />
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="mailto:hello@justmyslide.dev" className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition glow-primary">
-              <Mail className="h-4 w-4" /> hello@justmyslide.dev
+            <a href="mailto:contact@justmyslide.com" className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition glow-primary">
+              <Mail className="h-4 w-4" />contact@justmyslide.com
             </a>
           </div>
           <div className="mt-6 flex gap-3 text-muted-foreground">
-            <a href="#" aria-label="GitHub" className="hover:text-foreground"><Github className="h-5 w-5" /></a>
-            <a href="#" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-5 w-5" /></a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
+            <a href="https://github.com/rishos" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-foreground"><Github className="h-5 w-5" /></a>
+            <a href="https://twitter.com/justmyslide" target="_blank" rel="noreferrer" aria-label="Twitter" className="hover:text-foreground"><Twitter className="h-5 w-5" /></a>
+            <a href="https://www.linkedin.com/company/14502563/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
           </div>
         </div>
         <form
