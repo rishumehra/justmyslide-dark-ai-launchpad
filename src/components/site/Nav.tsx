@@ -29,7 +29,7 @@ export function Nav() {
           <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
         </nav>
         <a
-          href="https://github.com"
+          href="https://github.com/rishos"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary/60 px-3 py-1.5 text-xs font-mono text-foreground hover:bg-secondary transition-colors"

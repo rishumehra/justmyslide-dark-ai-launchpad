@@ -4,6 +4,7 @@ import { SectionHeader } from "./SectionHeader";
 const projects = [
   {
     name: "RishOS",
+    url: "https://github.com/rishos",
     desc: "A personal-OS framework: opinionated workflows, scripts, and dotfiles for an AI-augmented dev environment.",
     lang: "TypeScript",
     color: "var(--terminal-cyan)",
@@ -13,6 +14,7 @@ const projects = [
   },
   {
     name: "mdkit",
+    url: "https://github.com/rishos",
     desc: "Toolkit for Markdown documentation initiatives — linting, link-checking, and OpenAPI-to-MD pipelines.",
     lang: "Node",
     color: "var(--terminal-green)",
@@ -22,6 +24,7 @@ const projects = [
   },
   {
     name: "agent-lab",
+    url: "https://github.com/rishos",
     desc: "Experiments in AI agents and automation: planners, tool-use harnesses, and UiPath orchestrator bridges.",
     lang: "Python",
     color: "var(--terminal-amber)",
@@ -31,6 +34,7 @@ const projects = [
   },
   {
     name: "docforge",
+    url: "https://github.com/rishos",
     desc: "Static documentation generator with versioned API references, search, and embeddings-powered Q&A.",
     lang: "TypeScript",
     color: "var(--terminal-purple)",
@@ -48,7 +52,9 @@ export function Projects() {
         {projects.map((p) => (
           <a
             key={p.name}
-            href="#"
+            href={p.url}
+            target="_blank"
+            rel="noreferrer"
             className="terminal-card p-6 hover:border-primary/40 hover:-translate-y-0.5 transition-all"
           >
             <div className="flex items-start justify-between">
