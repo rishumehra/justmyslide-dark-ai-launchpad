@@ -1,12 +1,47 @@
+import React from "react";
 import { Mail, Github, Twitter, Linkedin } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 export function Contact() {
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.currentTarget);
+
+    // Aapki Web3Forms Access Key yahan hai
+    formData.append("access_key", "05bc7c7b-8291-49d2-9702-512d78212bdf");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Success! Message sent to our team.");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setResult("Network error. Please try again later.");
+    }
+  };
+
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-24 scroll-mt-20">
       <div className="terminal-card p-8 md:p-12 grid gap-10 lg:grid-cols-2 items-center">
         <div>
-          <SectionHeader eyebrow="./contact --new" title="Have a project in mind?" description="Tell us about your AI workflow, RPA backlog, or docs initiative. We respond within one business day." />
+          <SectionHeader 
+            eyebrow="./contact --new" 
+            title="Have a project in mind?" 
+            description="Tell us about your AI workflow, RPA backlog, or docs initiative. We respond within one business day." 
+          />
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="mailto:contact@justmyslide.com" className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition glow-primary">
               <Mail className="h-4 w-4" />contact@justmyslide.com
@@ -18,25 +53,48 @@ export function Contact() {
             <a href="https://www.linkedin.com/company/14502563/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
           </div>
         </div>
-        <form
-          onSubmit={(e) => { e.preventDefault(); }}
-          className="grid gap-3 font-mono text-sm"
-        >
+        
+        <form onSubmit={onSubmit} className="grid gap-3 font-mono text-sm">
           <label className="grid gap-1.5">
             <span className="text-xs text-muted-foreground">name</span>
-            <input className="rounded-md bg-background border border-border px-3 py-2.5 outline-none focus:border-primary transition-colors" placeholder="Ada Lovelace" />
+            <input 
+              name="name" 
+              required 
+              className="rounded-md bg-background border border-border px-3 py-2.5 outline-none focus:border-primary transition-colors" 
+              placeholder="Your Name" 
+            />
           </label>
           <label className="grid gap-1.5">
             <span className="text-xs text-muted-foreground">email</span>
-            <input type="email" className="rounded-md bg-background border border-border px-3 py-2.5 outline-none focus:border-primary transition-colors" placeholder="ada@example.com" />
+            <input 
+              name="email" 
+              type="email" 
+              required 
+              className="rounded-md bg-background border border-border px-3 py-2.5 outline-none focus:border-primary transition-colors" 
+              placeholder="your.email@example.com" 
+            />
           </label>
           <label className="grid gap-1.5">
             <span className="text-xs text-muted-foreground">message</span>
-            <textarea rows={4} className="rounded-md bg-background border border-border px-3 py-2.5 outline-none focus:border-primary transition-colors resize-none" placeholder="What are you building?" />
+            <textarea 
+              name="message" 
+              required 
+              rows={4} 
+              className="rounded-md bg-background border border-border px-3 py-2.5 outline-none focus:border-primary transition-colors resize-none" 
+              placeholder="Tell us about your project..." 
+            />
           </label>
-          <button type="submit" className="mt-2 rounded-md bg-foreground text-background px-4 py-2.5 text-sm font-medium hover:opacity-90 transition">
+          <button 
+            type="submit" 
+            className="mt-2 rounded-md bg-foreground text-background px-4 py-2.5 text-sm font-medium hover:opacity-90 transition"
+          >
             Send message
           </button>
+          {result && (
+            <p className="mt-2 text-xs font-mono text-primary animate-pulse">
+              {"> "} {result}
+            </p>
+          )}
         </form>
       </div>
     </section>
