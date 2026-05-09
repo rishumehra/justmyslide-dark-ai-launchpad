@@ -1,3 +1,4 @@
+// @lovable.dev/vite-tanstack-config already includes base plugins
 // @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
 // or the app will break with duplicate plugins:
 //   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, cloudflare (build-only),
@@ -6,9 +7,8 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
+  base: "/justmyslide-dark-ai-launchpad/", // <-- YEH LINE NAYI HAI
   tanstackStart: {
     server: { entry: "server" },
   },

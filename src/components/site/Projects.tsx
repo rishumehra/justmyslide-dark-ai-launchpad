@@ -3,39 +3,47 @@ import { SectionHeader } from "./SectionHeader";
 
 const projects = [
   {
+    id: "rishos",
     name: "RishOS",
     url: "https://github.com/rishos",
-    desc: "A personal-OS framework: opinionated workflows, scripts, and dotfiles for an AI-augmented dev environment.",
-    lang: "TypeScript",
+    status: "Featured",
+    desc: "Experimental operating system initiative for low-level systems experimentation, focused on developer tooling and lightweight workflows with an architecture-first systems programming mindset.",
+    lang: "C / C++",
     color: "var(--terminal-cyan)",
     stars: 412,
     forks: 38,
-    tags: ["os", "automation", "cli"],
+    tags: ["systems", "automation", "cli", "c", "c++"],
   },
   {
-    name: "mdkit",
+    id: "rpa-automation-toolkit",
+    name: "RPA Automation Toolkit",
     url: "https://github.com/rishos",
-    desc: "Toolkit for Markdown documentation initiatives — linting, link-checking, and OpenAPI-to-MD pipelines.",
+    status: "Coming Soon",
+    desc: "RPA Automation Toolkit — UiPath-based workflow automation systems.",
     lang: "Node",
     color: "var(--terminal-green)",
     stars: 287,
     forks: 21,
-    tags: ["markdown", "docs"],
+    tags: ["rpa", "uipath", "automation"],
   },
   {
-    name: "agent-lab",
+    id: "documentation-engine",
+    name: "Documentation Engine",
     url: "https://github.com/rishos",
-    desc: "Experiments in AI agents and automation: planners, tool-use harnesses, and UiPath orchestrator bridges.",
+    status: "Coming Soon",
+    desc: "Documentation Engine — AI-assisted developer documentation system.",
     lang: "Python",
     color: "var(--terminal-amber)",
     stars: 196,
     forks: 14,
-    tags: ["ai", "agents", "rpa"],
+    tags: ["docs", "ai", "developer-experience"],
   },
   {
-    name: "docforge",
+    id: "workflow-orchestrator",
+    name: "Workflow Orchestrator",
     url: "https://github.com/rishos",
-    desc: "Static documentation generator with versioned API references, search, and embeddings-powered Q&A.",
+    status: "Coming Soon",
+    desc: "Workflow Orchestrator — API + script automation layer for internal systems.",
     lang: "TypeScript",
     color: "var(--terminal-purple)",
     stars: 154,
@@ -51,7 +59,7 @@ export function Projects() {
       <div className="mt-12 grid gap-4 md:grid-cols-2">
         {projects.map((p) => (
           <a
-            key={p.name}
+            key={p.id}
             href={p.url}
             target="_blank"
             rel="noreferrer"
@@ -64,6 +72,7 @@ export function Projects() {
                   {p.name}
                   <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
                 </h3>
+                <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{p.status}</p>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
               </div>
             </div>

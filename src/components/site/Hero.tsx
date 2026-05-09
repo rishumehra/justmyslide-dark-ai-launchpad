@@ -16,6 +16,7 @@ export function Hero() {
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground animate-rise">
           JustMySlide is a small studio for AI workflow consulting, UiPath RPA automation,
           and developer-grade technical writing. Built by engineers, written for humans.
+          We build in public. We ship systems, not slides.
         </p>
         <div className="mt-8 flex flex-wrap gap-3 animate-rise">
           <a href="#contact" className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition glow-primary">

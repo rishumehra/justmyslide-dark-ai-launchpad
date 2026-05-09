@@ -3,7 +3,12 @@ import { SectionHeader } from "./SectionHeader";
 
 const services = [
   { icon: Brain, name: "AI Workflow Consulting", desc: "Architect LLM pipelines, agents, and retrieval systems that actually ship to production.", tag: "ai" },
-  { icon: Bot, name: "RPA with UiPath", desc: "Automate repetitive ops — back-office, ERP, finance — with maintainable UiPath bots.", tag: "rpa" },
+  {
+    icon: Bot,
+    name: "RPA Automation (UiPath)",
+    desc: "Professional RPA engineering with UiPath Studio, C#, VB.NET, Orchestrator, and REFramework for production-grade automation workflows.",
+    tag: "rpa",
+  },
   { icon: FileText, name: "Technical Writing", desc: "API references, runbooks, and onboarding guides written by engineers.", tag: "writing" },
   { icon: BookOpen, name: "Developer Documentation", desc: "Docs sites with versioning, search, and code samples that stay in sync with your repo.", tag: "docs" },
   { icon: GitBranch, name: "Open-Source Projects", desc: "We build and maintain OSS for documentation, automation, and AI tooling.", tag: "oss" },
